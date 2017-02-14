@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A07A825F-FAB0-4E1C-887B-821B2BACDFD4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XData.Data.Components</RootNamespace>
+    <AssemblyName>ElementComponents</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Evaluator">
+      <HintPath>..\Evaluator.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\WebApp\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authorization\AuthorizationConfigGetter.cs" />
+    <Compile Include="Authorization\AuthorizationConfigGetterFactory.cs" />
+    <Compile Include="Authorization\Authorizor.cs" />
+    <Compile Include="Authorization\AuthorizorFactory.cs" />
+    <Compile Include="CommonFieldsSetter.cs" />
+    <Compile Include="Configuration\AuthorizorFactoryFactory.cs" />
+    <Compile Include="Configuration\CommonFieldsSetterFactory.cs" />
+    <Compile Include="Configuration\ConfigurationCreator.cs" />
+    <Compile Include="Configuration\CryptorManager.cs" />
+    <Compile Include="Configuration\CurrentUserIdentityGetterFactory.cs" />
+    <Compile Include="Configuration\DataSourceConfigGetterFactoryFactory.cs" />
+    <Compile Include="Configuration\DataSourceFactoryFactory.cs" />
+    <Compile Include="Configuration\DbLogSqlProviderFactory.cs" />
+    <Compile Include="Configuration\ElementContextFactoryFactory.cs" />
+    <Compile Include="Configuration\ElementValidatorFactory.cs" />
+    <Compile Include="Configuration\HasherManager.cs" />
+    <Compile Include="Configuration\SpecifiedConfigGetterFactoryFactory.cs" />
+    <Compile Include="Configuration\ServerConfigurationSection.Element.cs" />
+    <Compile Include="Configuration\ServerConfigurationSection.cs" />
+    <Compile Include="Configuration\ServerConfigurationSection.Security.cs" />
+    <Compile Include="Configuration\AuthorizationConfigGetterFactoryFactory.cs" />
+    <Compile Include="CurrentUser.cs" />
+    <Compile Include="Data\ConfigurableDataSourceFactory.cs" />
+    <Compile Include="Data\DataSourceConfigGetterFactory.cs" />
+    <Compile Include="Data\DataSourceFactory.cs" />
+    <Compile Include="Data\DataSourceConfigGetter.cs" />
+    <Compile Include="Data\ConfigurableDataSource.cs" />
+    <Compile Include="Data\DataSource.cs" />
+    <Compile Include="DbLogSqlProvider.cs" />
+    <Compile Include="ElementContextFactory.cs" />
+    <Compile Include="Data\XmlDataSourceConfigGetter.cs" />
+    <Compile Include="ReferrerNameGetterHelper.cs" />
+    <Compile Include="Authorization\XmlAuthorizationConfigGetter.cs" />
+    <Compile Include="SchemaExts.cs" />
+    <Compile Include="XmlSpecifiedConfigGetter.cs" />
+    <Compile Include="SpecifiedConfigGetterFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ElementValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Components\Components.csproj">
+      <Project>{e232e56d-c05e-41bf-b6c2-97626c3b41d3}</Project>
+      <Name>Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ElementFramework.Extensions\ElementFramework.Extensions.csproj">
+      <Project>{808181f0-0212-4bd6-9018-58e60ec724ae}</Project>
+      <Name>ElementFramework.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ElementFramework\ElementFramework.csproj">
+      <Project>{09b08f06-25da-4bc5-b2b0-f1c925f3ba3f}</Project>
+      <Name>ElementFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

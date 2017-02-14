@@ -1,0 +1,36 @@
+﻿<form id="form" class="form-horizontal" role="form"
+      data-bv-message="This value is not valid"
+      data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+      data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+      data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+    <input name="Id" type="hidden" />
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Role Name:</label>
+        <div class="col-sm-4">
+            <input name="RoleName" class="form-control" type="text"
+                   required data-bv-notempty-message="The role name is required"
+                   pattern="^\w+$" data-bv-regexp-message="The role name can only consist of alphabetical characters, numbers and underscore"
+                   data-bv-remote data-bv-remote-url="/Admin/Roles/IsUniqueRoleName" data-bv-remote-message="The role name is already taken" />
+        </div>
+        <label class="col-sm-2 control-label">Display Name:</label>
+        <div class="col-sm-4">
+            <input name="DisplayName" class="form-control" type="text" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Descr:</label>
+        <div class="col-sm-4">
+            <textarea name="Descr" class="form-control" rows="4"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div data-plugin="backendErrorRenderer" class="col-sm-offset-2 text-danger">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-2">
+            <input type="submit" class="btn btn-primary" value="" data-redirect-url="/Admin/Roles/Index" />
+            <input type="button" class="btn btn-info" value="Return" onclick="javascript:history.go(-1)" />
+        </div>
+    </div>
+</form>

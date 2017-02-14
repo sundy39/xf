@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Roles";
+}
+
+<br />
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="input-group">
+            <span class="input-group-addon" style="background-color:white">
+                <select name="combine" style="outline:none; border:none; background-color:transparent">
+                    <option value="1">All</option>
+                    <option value="2">Role Name</option>
+                    <option value="3">Display Name</option>
+                </select>
+            </span>
+            <input name="word" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-2" style="padding-left:0px; margin-left:0px">
+        <button class="btn btn-info" type="button"
+                data-plugin="filterer"
+                data-value-elements="combine,word">
+            <i class="glyphicon glyphicon-search"></i>&nbsp;Query
+        </button>
+    </div>
+    <div class="col-sm-2 pull-right">
+        <select data-plugin="sorter" name="sort" class="form-control">
+            <option value="1">Role Name:Asc</option>
+            <option value="2">Role Name:Desc</option>
+            <option value="3">Display Name:Asc</option>
+            <option value="4">Display Name:Desc</option>
+            <option value="5">Creation Time:Desc</option>
+        </select>
+    </div>
+</div>
+
+<br />
+
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>Role</th>
+            <th>Display Name</th>
+            <th>Description</th>
+            <th>
+                <a href="/Admin/Roles/Create?sort=5">
+                    <i class="glyphicon glyphicon-new-window"></i>&nbsp;Create
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody data-plugin="renderer" class="invisible">
+        <tr>
+            <td>{{RoleName}}</td>
+            <td>{{DisplayName}}</td>
+            <td>{{Descr}}</td>
+            <td>
+                <a href="/Admin/Roles/Edit/{{Id}}{{window.location.search}}">
+                    <i class="glyphicon glyphicon-edit"></i>&nbsp;Edit
+                </a>
+                <span>&nbsp;</span>
+                <a href="/Admin/Roles/Delete/{{Id}}{{window.location.search}}">
+                    <i class="glyphicon glyphicon-remove"></i>&nbsp;Delete
+                </a>
+                <span>&nbsp;</span>
+                <a href="/Admin/Roles/Details/{{Id}}">
+                    <i class="glyphicon glyphicon-list-alt"></i>&nbsp;Details
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr style="margin-top: 0px; padding-top: 0px; border-top: 2px solid #dddddd" />
+
+<span data-plugin="paginationInfo" style="margin-right: 32px; margin-top: 8px; float: left" data-html="{{itemCount}} results"></span>
+
+<ul data-plugin="pagination" style="display: inline" class="pagination"></ul>
+
+<label style="margin-left: 16px">To</label>
+<input id="paginationGoValue" class="form-control input-sm" type="number" min="1" max="50" style="padding: 0px; padding-left: 4px; height: 28px; width: 42px; display: inline" />
+<button data-plugin="paginationGo" style="margin-bottom: 0px" class="btn btn-info btn-sm" type="button"
+        data-value-element="paginationGoValue">
+    Go
+</button>
+
+<div class="pull-right">
+    <label>Size</label>
+    <select data-plugin="pageSizer" name="pageSize" class="form-control input-sm" style="padding-left: 10px; padding-right: 2px; width: 60px; display: inline-block">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+    </select>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('body').queryPage();
+        });
+    </script>
+}

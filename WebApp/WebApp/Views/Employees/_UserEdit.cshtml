@@ -1,0 +1,51 @@
+﻿<div id="user_edit_modal" class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="user_edit_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="user_edit_label">Edit</h4>
+            </div>
+            <div class="modal-body">
+                <br />
+                <form class="form form-horizontal" role="form" action="/Admin/User"
+                      data-creator-name="user_create" data-editor-name="user_edit"
+                      data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+                      data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                      data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                      data-bv-message="This value is not valid">
+                    <input name="Id" type="hidden">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="UserName">User name:</label>
+                        <div class="col-sm-6">
+                            <input name="UserName" class="form-control" type="text"
+                                   data-bv-notempty="true"
+                                   data-bv-notempty-message="The user name is required and cannot be empty"
+                                   data-bv-stringlength="true"
+                                   data-bv-stringlength-min="4"
+                                   data-bv-stringlength-max="8"
+                                   data-bv-stringlength-message="The user name must be at least 4 and not more than 8 characters long"
+                                   data-bv-username="true"
+                                   data-bv-username-message="The user name must contain at least one of alphabetical characters and not contain '@@'"
+                                   pattern="^\w+$"
+                                   data-bv-regexp-message="The user name can only consist of alphabetical characters, numbers and underscore" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input name="IsDisabled" type="checkbox" />
+                                    Disable
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                <button class="btn btn-primary" type="button">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

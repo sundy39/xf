@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElementFramework.Oracle", "ElementFramework.Oracle\ElementFramework.Oracle.csproj", "{BCA72F93-09F7-4EF7-BA11-3FBCB5C00413}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElementFramework", "ElementFramework\ElementFramework.csproj", "{09B08F06-25DA-4BC5-B2B0-F1C925F3BA3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Oracle", "WebApi.Oracle\WebApi.Oracle.csproj", "{035DCFDF-DA60-4645-A87C-94A799C13677}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElementFramework.Extensions", "ElementFramework.Extensions\ElementFramework.Extensions.csproj", "{808181F0-0212-4BD6-9018-58E60EC724AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCA72F93-09F7-4EF7-BA11-3FBCB5C00413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCA72F93-09F7-4EF7-BA11-3FBCB5C00413}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCA72F93-09F7-4EF7-BA11-3FBCB5C00413}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCA72F93-09F7-4EF7-BA11-3FBCB5C00413}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09B08F06-25DA-4BC5-B2B0-F1C925F3BA3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09B08F06-25DA-4BC5-B2B0-F1C925F3BA3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09B08F06-25DA-4BC5-B2B0-F1C925F3BA3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09B08F06-25DA-4BC5-B2B0-F1C925F3BA3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{035DCFDF-DA60-4645-A87C-94A799C13677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035DCFDF-DA60-4645-A87C-94A799C13677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035DCFDF-DA60-4645-A87C-94A799C13677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035DCFDF-DA60-4645-A87C-94A799C13677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{808181F0-0212-4BD6-9018-58E60EC724AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{808181F0-0212-4BD6-9018-58E60EC724AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{808181F0-0212-4BD6-9018-58E60EC724AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{808181F0-0212-4BD6-9018-58E60EC724AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

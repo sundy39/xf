@@ -1,0 +1,80 @@
+﻿<div id="edit_modal" class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="edit_label" aria-hidden="true">
+    <div style="min-width:824px" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="edit_label">Edit</h4>
+            </div>
+            <div class="modal-body" style="padding-left:0px;margin-right:45px">
+                <form class="form form-horizontal" role="form"
+                      data-creator-name="create" data-editor-name="edit"
+                      data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+                      data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                      data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                      data-bv-message="This value is not valid">
+                    <input name="Id" type="hidden">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Name:</label>
+                        <div class="col-sm-4">
+                            <input name="Name" class="form-control" type="text"
+                                   required data-bv-notempty-message="The name is required">
+                        </div>
+                        <label class="col-sm-2 control-label">Gender:</label>
+                        <div class="col-sm-4">
+                            <select data-name="genders" name="Gender" class="form-control">
+                                <option value="{{Id}}">&nbsp;{{Name}}&nbsp;&nbsp;</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Birthdate:</label>
+                        <div class='col-sm-4'>
+                            <div class='input-group date'>
+                                <input data-plugin="datetimepicker" name="Birthdate" class="form-control" type="text" readonly>
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <label class="col-sm-2 control-label">Email:</label>
+                        <div class="col-sm-4">
+                            <input name="Email" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tel:</label>
+                        <div class="col-sm-4">
+                            <input name="Tel" class="form-control" type="text">
+                        </div>
+                        <label class="col-sm-2 control-label">Mobile:</label>
+                        <div class="col-sm-4">
+                            <input name="Mobile" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Addr:</label>
+                        <div class="col-sm-10">
+                            <input name="Addr" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Postcode:</label>
+                        <div class="col-sm-4">
+                            <input name="Postcode" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Comment:</label>
+                        <div class="col-sm-10">
+                            <textarea name="Comment" class="form-control" rows="4"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                <button class="btn btn-primary" type="button">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

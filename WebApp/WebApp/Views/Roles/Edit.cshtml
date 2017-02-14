@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<hr />
+
+@Html.Partial("_Edit")
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#form').editForm();
+        });
+    </script>
+}
+

@@ -1,0 +1,58 @@
+﻿/* pagination */
+.pagination {
+    margin-top: 0px;
+}
+
+    .pagination > li > a {
+        margin-left: 2px;
+        margin-right: 2px;
+        border: none;
+    }
+
+    .pagination > li > span {
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 0px;
+        padding-right: 0px;
+        border: none;
+    }
+
+    .pagination > li:first-child > a,
+    .pagination > li:first-child > span {
+        border-radius: 0px;
+    }
+
+    .pagination > li:last-child > a,
+    .pagination > li:last-child > span {
+        border-radius: 0px;
+    }
+
+    .pagination > li > span:hover,
+    .pagination > li > span:focus {
+        cursor: default;
+        background-color: transparent;
+    }
+
+/* sort */
+.sort-both {
+    background-image: url(../images/sort_both.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.sort-asc {
+    background-image: url(../images/sort_asc.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.sort-desc {
+    background-image: url(../images/sort_desc.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+thead > tr > th.header,
+tbody > tr > td.header {
+    width: 28px;
+}

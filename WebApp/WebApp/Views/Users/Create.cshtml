@@ -1,0 +1,78 @@
+﻿@model XData.WebApp.Models.CreateUserModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<hr />
+
+<form id="form" class="form-horizontal" method="post" role="form"
+      data-bv-message="This value is not valid"
+      data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+      data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+      data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+    <div class="form-group">
+        @Html.ValidationSummary(true, null, new { @class = "col-sm-offset-1 text-danger" })
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Employee</label>
+        <div class="col-sm-4">
+            <select id="select1" data-name="allEmployees" name="EmployeeId" class="form-control" data-init-value=@(Model==null? -1 :Model.EmployeeId)>
+                <option value="{{Id}}">{{Name}}&nbsp;&nbsp;{{GenderName}}&nbsp;&nbsp;{{Email}}&nbsp;&nbsp;{{Mobile}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.UserName,
+                new
+                {
+                    @class = "form-control",
+                    data_bv_notempty = "true",
+                    data_bv_notempty_message = "The user name is required and cannot be empty",
+                    data_bv_stringlength = "true",
+                    data_bv_stringlength_min = "4",
+                    data_bv_stringlength_max = "8",
+                    data_bv_stringlength_message = "The user name must be at least 4 and not more than 8 characters long",
+                    data_bv_username = "true",
+                    data_bv_username_message = "The user name must contain at least one of alphabetical characters and not contain '@'",
+                    pattern = @"^\w+$",
+                    data_bv_regexp_message = "The user name can only consist of alphabetical characters, numbers and underscore",
+                    data_bv_remote = "true",
+                    data_bv_remote_url = "/Admin/Users/IsUniqueUserName",
+                    data_bv_remote_message = "The user name is already taken"
+                })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(m => m.IsDisabled)
+                    @Html.DisplayNameFor(m => m.IsDisabled)
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-4">
+            <input type="submit" class="btn btn-primary" value="Create" />
+            <input type="button" class="btn btn-info" value="Return" onclick="javascript:history.go(-1)" />
+        </div>
+    </div>
+</form>
+
+@section scripts
+{
+    <script>
+        $('select[data-name]').initializer();
+        var val = $('#select1').attr('data-init-value');
+        if (val != -1) {
+            $('#select1').val(val);
+        }
+
+        $('#form').bootstrapValidator();
+    </script>
+}

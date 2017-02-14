@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<hr />
+
+@Html.Partial("_Details")
+
+<hr />
+
+<div class="row">
+    <div class="col-sm-2">
+        <label class="pull-right">Roles:</label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-offset-2 col-sm-10">
+        <table id="table" class="table">
+            <thead>
+                <tr>
+                    <th>Role Name</th>
+                    <th>Display Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{RoleName}}</td>
+                    <td>{{DisplayName}}</td>
+                    <td>{{Descr}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $.getJSON('/Data?name=user', {}, function (data, textStatus, jqXHR) {
+                $('#details').renderer(data);
+            });
+
+            $.getJSON('/Data?name=roles', {}, function (data, textStatus, jqXHR) {
+                $('#table tbody').renderer(data);
+            });
+        });
+    </script>
+}

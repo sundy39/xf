@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<hr />
+
+@Html.Partial("_Edit")
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#form').createForm();
+        });
+    </script>
+}

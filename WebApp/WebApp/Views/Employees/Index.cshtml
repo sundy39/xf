@@ -1,0 +1,379 @@
+﻿
+@{
+    ViewBag.Title = "Employees";
+}
+
+<br />
+
+<div id="master">
+    <form class="form-inline" style="margin-left:8px">
+        <div class="form-group" style="margin-right:20px">
+            <label class="control-label">Name&nbsp;</label>
+            <input name="Name" class="form-control" />
+        </div>
+        <div class="form-group" style="margin-right:20px">
+            <label class="control-label">Gender&nbsp;</label>
+            <select data-name="genders" data-empty-html="&nbsp;All" name="Gender" class="form-control">
+                <option value="{{Id}}">&nbsp;{{Name}}&nbsp;&nbsp;</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Tel / Mobile / Email&nbsp;</label>
+            <input name="Contact" class="form-control" />
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-info"
+                    data-plugin="filterer"
+                    data-value-elements="Name,Gender,Contact">
+                <i class="glyphicon glyphicon-search"></i>&nbsp;Query
+            </button>
+        </div>
+    </form>
+
+    <br />
+
+    <div class="pull-right">
+        <button id="create" class="btn btn-primary"><i class="glyphicon glyphicon-new-window"></i>&nbsp;Create</button>
+        <button id="edit" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit</button>
+        <button id="delete" class="btn btn-primary"><i class="glyphicon glyphicon-remove"></i>&nbsp;Delete</button>
+        <button id="details" class="btn btn-primary"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Details</button>
+    </div>
+
+    <div style="clear:both"></div>
+
+    <input name="header" id="header" type="hidden" value="0" />
+    <input name="updown" id="updown" type="hidden" value="1" />
+    <table style="margin-top:2px" class="table table-bordered table-condensed">
+        <thead data-plugin="tableHeadSorter" data-header-element="header" data-updown-element="updown">
+            <tr>
+                <th><input type="checkbox" /></th>
+                <th class="sort-both" data-header="1">Name</th>
+                <th class="sort-both" data-header="2">Gender</th>
+                <th class="sort-both" data-header="3">Birthdate</th>
+                <th class="sort-both" data-header="4">Tel</th>
+                <th class="sort-both" data-header="5">Mobile</th>
+                <th class="sort-both" data-header="6">Email</th>
+            </tr>
+        </thead>
+        <tbody data-plugin="dataBox" class="invisible">
+            <tr>
+                <td class="header" data-header><input type="checkbox" /></td>
+                <td>{{Name}}</td>
+                <td>{{GenderName}}</td>
+                <td>{{Birthdate}}</td>
+                <td>{{Tel}}</td>
+                <td>{{Mobile}}</td>
+                <td>{{Email}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr style="margin-top: 0px; padding-top: 0px; border-top: 2px solid #dddddd" />
+
+    <span data-plugin="paginationInfo" style="margin-right: 32px; margin-top: 8px; float: left" data-html="{{itemCount}} results"></span>
+
+    <ul data-plugin="pagination" style="display: inline" class="pagination"></ul>
+
+    <label style="margin-left: 16px">To</label>
+    <input id="paginationGoValue" class="form-control input-sm" type="number" min="1" max="50" style="padding: 0px; padding-left: 4px; height: 28px; width: 42px; display: inline" />
+    <button data-plugin="paginationGo" style="margin-bottom: 0px" class="btn btn-info btn-sm" type="button"
+            data-value-element="paginationGoValue">
+        Go
+    </button>
+
+    <div class="pull-right">
+        <label>Size</label>
+        <select data-plugin="pageSizer" name="pageSize" class="form-control input-sm" style="padding-left: 10px; padding-right: 2px; width: 60px; display: inline-block">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+        </select>
+    </div>
+</div>
+
+<br /><br /><br /><br />
+
+<div id="users">
+    <label>&nbsp;Users:</label>
+    <div class="pull-right">
+        <a id="user_create" class="btn" href="javascript:"><i class="glyphicon glyphicon-new-window"></i>&nbsp;Create</a>
+        <a id="user_edit" class="btn" href="javascript:"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit</a>
+        <a id="user_delete" class="btn" href="javascript:"><i class="glyphicon glyphicon-remove"></i>&nbsp;Delete</a>
+        <a id="user_details" class="btn" href="javascript:"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Details</a>
+    </div>
+
+    <table class="table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th><input type="checkbox" /></th>
+                <th>User name</th>
+                <th>IsDisabled</th>
+                <th>IsLockedOut</th>
+            </tr>
+        </thead>
+        <tbody data-name="users" data-plugin="dataBox" class="invisible">
+            <tr>
+                <td class="header" data-header><input type="checkbox" /></td>
+                <td>{{UserName}}</td>
+                <td>{{IsDisabled}}</td>
+                <td>{{IsLockedOut}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@Html.Partial("_Edit")
+@Html.Partial("_Details")
+@Html.Partial("_UserEdit")
+@Html.Partial("_UserDetails")
+
+@section styles
+{
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+}
+
+@section scripts
+{
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#edit_modal [name=Birthdate]').parent().datetimepicker({
+                format: "YYYY-MM-DD",
+                showTodayButton: true,
+                showClear: true,
+                showClose: true,
+                ignoreReadonly: true
+            });
+
+            $('select[data-name]').initializer();
+
+            $('#master tbody').dataBox({
+                "selectedChanged": function (selectedIndex) {
+                    if (selectedIndex == -1) {
+                        $('#edit').attr('disabled', 'disabled');
+                        $('#details').attr('disabled', 'disabled');
+                        refresh_users();
+                    }
+                    else {
+                        $('#edit').removeAttr('disabled');
+                        $('#details').removeAttr('disabled');
+                        var item = $('#master tbody').dataBox('getData')[selectedIndex];
+                        refresh_users(item);
+                    }
+                },
+                "checkedChanged": function (checkedIndexes) {
+                    if (checkedIndexes.length > 0) {
+                        $('#delete').removeAttr('disabled');
+                    }
+                    else {
+                        $('#delete').attr('disabled', 'disabled');
+                    }
+                }
+            });
+
+            $('#users tbody').dataBox({
+                "selectedChanged": function (selectedIndex) {
+                    if (selectedIndex == -1) {
+                        $('#user_edit').addClass('disabled');
+                        $('#user_details').addClass('disabled');
+                    }
+                    else {
+                        $('#user_edit').removeClass('disabled');
+                        $('#user_details').removeClass('disabled');
+                    }
+                },
+                "checkedChanged": function (checkedIndexes) {
+                    if (checkedIndexes.length > 0) {
+                        $('#user_delete').removeClass('disabled');
+                    }
+                    else {
+                        $('#user_delete').addClass('disabled');
+                    }
+                }
+            });
+
+            var refresh_users = function (master_item) {
+                if (master_item == null) {
+                    $('#user_create').addClass('disabled');
+                    $('#users tbody').dataBox({
+                        "data": [],
+                    });
+                }
+                else {
+                    $('#user_create').removeClass('disabled');
+                    var name = $('#users tbody').attr('data-name');
+                    var url = (name == null) ? '/Data' : '/Data?name=' + name;
+                    $.getJSON(url, master_item, function (data, textStatus, jqXHR) {
+                        var selectedIndex = (data.length > 0) ? 0 : -1;
+                        $('#users tbody').dataBox({
+                            "data": data,
+                            "selectedIndex": selectedIndex
+                        });
+                    });
+                }
+            };
+
+            $('#master').querier({
+                "done": function (data) {
+                    var selectedIndex = (data.length > 0) ? 0 : -1;
+                    $('#master tbody').dataBox({
+                        "data": data,
+                        "selectedIndex": selectedIndex
+                    });
+                }
+            });
+
+            $('#edit_modal').modalEditor({
+                creator: {
+                    done: function (data) {
+                        var $dataBox = $('#master tbody');
+
+                        $.getJSON('/Data?name=refresh', data, function (data, textStatus, jqXHR) {
+                            var obj = $.isArray(data) ? data[0] : data;
+                            $dataBox.dataBox('insert',
+                            {
+                                "index": 0,
+                                "data": obj
+                            });
+                        });
+                    }
+                },
+                editor: {
+                    done: function (data) {
+                        var $dataBox = $('#master tbody');
+
+                        var index = $dataBox.dataBox('getSelectedIndex');
+                        $.getJSON('/Data?name=refresh', data, function (data, textStatus, jqXHR) {
+                            var obj = $.isArray(data) ? data[0] : data;
+                            $dataBox.dataBox('update',
+                            {
+                                "index": index,
+                                "data": obj
+                            });
+                        });
+                    }
+                }
+            });
+
+            $('#create').click(function (event) {
+                $('#edit_modal').modalEditor('create');
+            });
+
+            $('#edit').click(function (event) {
+                var data = $('#master tbody').dataBox('getSelectedData');
+                $('#edit_modal').modalEditor('edit', data);
+            });
+
+            $('#delete').click(function (event) {
+                var pageIndex = $('#master').querier('getPage').pageIndex;
+                var data = $('#master tbody').dataBox('getCheckedData');
+                var name = $('#master [name=name]').val();
+                if (confirm('Are you sure you want to delete the ' + data.length + ' selected item(s)?')) {
+                    $.deleteData(name, data, function () {
+                        $('#master').querier({ "pageIndex": pageIndex });
+                    });
+                }
+            });
+
+            $('#details').click(function (event) {
+                var item = $('#master tbody').dataBox('getSelectedData');
+                $.getJSON('/Data?name=details', item, function (data, textStatus, jqXHR) {
+                    $('#details_modal .modal-body').renderer(data);
+                    $('#details_modal').modal();
+                });
+            });
+
+            // users
+            $('#user_edit_modal form').bootstrapValidator({
+                excluded: ':disabled',
+                fields: {
+                    UserName: {
+                        message: 'The username is not valid',
+                        validators: {
+                            remote: {
+                                message: 'The user name is already taken',
+                                url: "/Admin/Employees/IsUniqueUserName",
+                                data: function (validator) {
+                                    return {
+                                        //Id: validator.getFieldElements('Id').val()
+                                        Id: validator.$form.find('[name=Id]').val()
+                                    };
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            $('#user_edit_modal').modalEditor({
+                creator: {
+                    done: function (data) {
+                        var $dataBox = $('#users tbody');
+
+                        $.getJSON('/Data?name=user_refresh', data, function (data, textStatus, jqXHR) {
+                            var obj = $.isArray(data) ? data[0] : data;
+                            $dataBox.dataBox('insert',
+                            {
+                                "index": 0,
+                                "data": obj
+                            });
+                        });
+                    }
+                },
+                editor: {
+                    done: function (data) {
+                        var $dataBox = $('#users tbody');
+
+                        var index = $dataBox.dataBox('getSelectedIndex');
+                        $.getJSON('/Data?name=user_refresh', data, function (data, textStatus, jqXHR) {
+                            var obj = $.isArray(data) ? data[0] : data;
+                            $dataBox.dataBox('update',
+                            {
+                                "index": index,
+                                "data": obj
+                            });
+                        });
+                    }
+                }
+            });
+
+            $('#user_create').click(function (event) {
+                var data = $('#master tbody').dataBox('getSelectedData');
+                $('#user_edit_modal').modalEditor('create',
+                    {
+                        "name": undefined,
+                        "data": data
+                    });
+            });
+
+            $('#user_edit').click(function (event) {
+                var data = $('#users tbody').dataBox('getSelectedData');
+                $('#user_edit_modal').modalEditor('edit', data);
+            });
+
+            $('#user_delete').click(function (event) {
+                var master = $('#master tbody').dataBox('getSelectedData');
+                var data = $('#users tbody').dataBox('getCheckedData');
+                var name = $('#users tbody').attr('data-name');
+                if (confirm('Are you sure you want to delete the ' + data.length + ' selected item(s)?')) {
+                    $.deleteData(name, data, function () {
+                        refresh_users(master);
+                    });
+                }
+            });
+
+            $('#user_details').click(function (event) {
+                var item = $('#users tbody').dataBox('getSelectedData');
+                $.getJSON('/Data?name=user_details', item, function (data, textStatus, jqXHR) {
+                    $('#user_details_modal .modal-body').renderer(data);
+                    $('#user_details_modal').modal();
+                });
+            });
+
+        });
+    </script>
+}

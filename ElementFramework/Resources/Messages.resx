@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ConfigSchema_Version_IsNullOrEmpty" xml:space="preserve">
+    <value>"ConfigVersion" is null or empty.</value>
+  </data>
+  <data name="NamedConfig_Not_Match_PrimaryVersion" xml:space="preserve">
+    <value>"Version" does not match primary version.</value>
+  </data>
+  <data name="NamedSchema_Verification_Failed" xml:space="preserve">
+    <value>The schema "{0}{1}" verify failed.</value>
+    <comment>params: name,version</comment>
+  </data>
+  <data name="PrimeRelationship_Not_Specified" xml:space="preserve">
+    <value>Prime Relationship is not be specified for {0} and {1}.</value>
+    <comment>params: form,to</comment>
+  </data>
+  <data name="Duplicate_PrimeRelationship" xml:space="preserve">
+    <value>Only one prime Relationship should be specified for {0} and {1}.</value>
+    <comment>params: form,to</comment>
+  </data>
+  <data name="Relationships_Non_Connected" xml:space="preserve">
+    <value>Relationships non-connected.</value>
+  </data>
+  <data name="FromTo_Not_Match_Content" xml:space="preserve">
+    <value>"FromTo" does not match "Content".</value>
+  </data>
+  <data name="Not_SimpleRelationship" xml:space="preserve">
+    <value>"{0}" is not a SimpleRelationship.</value>
+    <comment>param: content</comment>
+  </data>
+  <data name="Name_IsNullOrEmpty" xml:space="preserve">
+    <value>"Name" is null or empty.</value>
+  </data>
+  <data name="Version_IsNullOrEmpty" xml:space="preserve">
+    <value>"Version" is null or empty.</value>
+  </data>
+  <data name="NameMap_Version_IsNullOrEmpty" xml:space="preserve">
+    <value>"Version" is null or empty.</value>
+  </data>
+  <data name="NamedConfig_Name_IsNullOrEmpty" xml:space="preserve">
+    <value>"Version" is null or empty.</value>
+  </data>
+  <data name="NamedConfigVersion_IsNullOrEmpty" xml:space="preserve">
+    <value>"NamedConfigVersion" is null or empty.</value>
+  </data>
+  <data name="Is_Not_Boolean" xml:space="preserve">
+    <value>"{0}" is not a Boolean value.</value>
+    <comment>param: value</comment>
+  </data>
+  <data name="TimestampCheck_Failed" xml:space="preserve">
+    <value>TimestampCheck failed.</value>
+  </data>
+  <data name="Timestamp_IsNullOrEmpty" xml:space="preserve">
+    <value>The value of Timestamp field have not been provided.</value>
+  </data>
+  <data name="PrimarySchema_Verify_Failed" xml:space="preserve">
+    <value>The schema: {0} verify failed.</value>
+    <comment>param: version</comment>
+  </data>
+  <data name="ConcurrencyCheck_Failed" xml:space="preserve">
+    <value>ConcurrencyCheck failed.</value>
+  </data>
+  <data name="PrimaryConfig_Version_Not_Match_Config" xml:space="preserve">
+    <value>"PrimaryConfigVersion" does not match Config.</value>
+  </data>
+  <data name="NameMap_Version_Not_Match_Config" xml:space="preserve">
+    <value>"Version" does not match Config.</value>
+  </data>
+  <data name="NamedConfig_Version_Not_Match_Config" xml:space="preserve">
+    <value>"Version" does not match Config.</value>
+  </data>
+  <data name="NamedConfig_Not_Match_Name" xml:space="preserve">
+    <value>"Name" does not match Config.</value>
+  </data>
+  <data name="Not_Found_Original" xml:space="preserve">
+    <value>{0} can not be found in original.</value>
+    <comment>param: node</comment>
+  </data>
+  <data name="Type_Not_Match_Relationship" xml:space="preserve">
+    <value>"Type" is not match {0}.</value>
+    <comment>param: relationship</comment>
+  </data>
+  <data name="Validation_Element_Not_Match_Original" xml:space="preserve">
+    <value>The element does not match original.</value>
+  </data>
+  <data name="Validation_Error" xml:space="preserve">
+    <value>Validation error.</value>
+  </data>
+  <data name="Validation_Invalid_Key" xml:space="preserve">
+    <value>The value(s) of key field(s) have not been provided.</value>
+  </data>
+  <data name="Validation_No_Available_Relationship" xml:space="preserve">
+    <value>None of relationships is available between {0} and {1}.</value>
+    <comment>params: childElementName,parentElementName</comment>
+  </data>
+  <data name="Validation_RelatedFields_Not_Match" xml:space="preserve">
+    <value>{0} of {1} does not match {2} of {3}.</value>
+    <comment>params: relatedFieldName,relatedElementName,fieldName,elementName</comment>
+  </data>
+  <data name="Validation_Schema_Confuse_ElementName_SetName" xml:space="preserve">
+    <value>Confuse elementName and setName.</value>
+  </data>
+  <data name="Validation_Schema_Duplicate_Elements" xml:space="preserve">
+    <value>Duplicate Elements.</value>
+  </data>
+  <data name="Validation_Schema_Duplicate_Sets" xml:space="preserve">
+    <value>Duplicate Sets.</value>
+  </data>
+  <data name="Validation_Schema_Not_Exists_Element" xml:space="preserve">
+    <value>{0} is not exist.</value>
+    <comment>param: elementName</comment>
+  </data>
+  <data name="Validation_Schema_Not_Exists_Field" xml:space="preserve">
+    <value>{0} of {1} is not exist.</value>
+    <comment>params: elementName,fieldName</comment>
+  </data>
+  <data name="Validation_Schema_Relationship_Navigation_Field_Not_Allowed" xml:space="preserve">
+    <value>Navigation field is not allowed for RelationShip.</value>
+  </data>
+  <data name="Validation_Schema_Relationship_Invalid_Type" xml:space="preserve">
+    <value>Invalid "Type" of Relationship.</value>
+  </data>
+  <data name="Duplicate_Original_Found" xml:space="preserve">
+    <value>Duplicate rows have been found in Original by the key "{0}"</value>
+    <comment>param: key</comment>
+  </data>
+  <data name="Draft_Specify_Relationships_Priority" xml:space="preserve">
+    <value>Specify Priority to below Relationships:</value>
+  </data>
+  <data name="Duplicate_ReferencePath_Name" xml:space="preserve">
+    <value>Duplicate name in ReationshipPaths of {0} and {1}.</value>
+    <comment>params: form,to</comment>
+  </data>
+  <data name="Duplicate_ReferencePaths" xml:space="preserve">
+    <value>Duplicate ReferencePaths between {0} and {1}.</value>
+    <comment>params: form,to</comment>
+  </data>
+  <data name="No_Available_Relationship" xml:space="preserve">
+    <value>None of relationships is available between {0} and {1}.</value>
+    <comment>params: form,to</comment>
+  </data>
+  <data name="NameMap_Not_Match_DatabaseVersion" xml:space="preserve">
+    <value>"Version" does not match Database.</value>
+  </data>
+  <data name="PrimaryConfig_Not_Match_DatabaseVersion" xml:space="preserve">
+    <value>"Version" does not match Database.</value>
+  </data>
+  <data name="PrimaryConfig_Not_Match_NameMap" xml:space="preserve">
+    <value>"Version" does not match NameMap.</value>
+  </data>
+  <data name="DatabaseConfig_Not_Match_DatabaseVersion" xml:space="preserve">
+    <value>"Version" does not match Database.</value>
+  </data>
+  <data name="DatabaseConfig_Not_Match_NameMap" xml:space="preserve">
+    <value>"Version" does not match NameMap.</value>
+  </data>
+  <data name="Duplicate_PrimeReferencePath" xml:space="preserve">
+    <value>Only one prime ReferencePath should be specified for {0} and {1}.</value>
+    <comment>params: form,to</comment>
+  </data>
+  <data name="PrimeReferencePath_Not_Specified" xml:space="preserve">
+    <value>Prime ReferencePath is not be specified for {0} and {1}.</value>
+    <comment>params: form,to</comment>
+  </data>
+  <data name="NameMap_NameMapVersion_Not_Match_Argument" xml:space="preserve">
+    <value>"NameMapVersion" does not match Argument.</value>
+  </data>
+  <data name="PrimaryConfig_ConfigVersion_Not_Match_Argument" xml:space="preserve">
+    <value>"ConfigVersion" does not match Argument.</value>
+  </data>
+</root>

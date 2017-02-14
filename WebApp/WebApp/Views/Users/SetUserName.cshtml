@@ -1,0 +1,65 @@
+﻿@model XData.WebApp.Models.SetUserNameModel
+
+@{
+    ViewBag.Title = "Set user name";
+}
+
+<h2>Set user name</h2>
+
+<hr />
+
+@Html.Partial("_Details")
+
+<br /><br />
+
+<form id="form" class="form-horizontal" method="post" role="form"
+      data-bv-message="This value is not valid"
+      data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+      data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+      data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+    <div class="form-group">
+        @Html.ValidationSummary(false, null, new { @class = "col-sm-offset-1 text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.NewUserName, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.NewUserName,
+                new
+                {
+                    @class = "form-control",
+                    data_bv_notempty = "true",
+                    data_bv_notempty_message = "The new user name is required and cannot be empty",
+                    data_bv_stringlength = "true",
+                    data_bv_stringlength_min = "4",
+                    data_bv_stringlength_max = "8",
+                    data_bv_stringlength_message = "The new user name must be at least 4 and not more than 8 characters long",
+                    data_bv_username = "true",
+                    data_bv_username_message = "The new user name must contain at least one of alphabetical characters and not contain '@'",
+                    pattern = @"^\w+$",
+                    data_bv_regexp_message = "The new user name can only consist of alphabetical characters, numbers and underscore",
+                    data_bv_remote = "true",
+                    data_bv_remote_url = "/Admin/Users/IsUniqueUserName",
+                    data_bv_remote_message = "The user name is already taken"
+                })
+        </div>
+        <div class="col-sm-2" style="margin-left:0px">
+            <input type="submit" class="btn btn-primary" value="Change" />
+            <input type="button" class="btn btn-info" value="Return" onclick="javascript:history.go(-1)" />
+        </div>
+    </div>
+</form>
+
+<div style="clear:both"></div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $.getJSON('/Data?name=user', {}, function (data, textStatus, jqXHR) {
+                $('#details').renderer(data);
+            });
+        });
+
+        $('#form').bootstrapValidator();
+    </script>
+}

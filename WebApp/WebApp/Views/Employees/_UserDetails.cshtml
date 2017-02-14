@@ -1,0 +1,56 @@
+﻿<div id="user_details_modal"
+     class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="user_details_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="user_details_label">Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="pull-right">User name:</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>{{UserName}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="pull-right">Status:</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>{{IsDisabled=='true'?'<span class="text-danger">Disabled</span>':'Enabled'}}&nbsp;&nbsp;{{IsLockedOut=='true'?'<span class="text-danger">Locked</span>':'Unlocked'}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="pull-right">Last login:</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>{{LastLoginDate}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="pull-right">Last pwd changed:</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>{{LastPasswordChangedDate}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="pull-right">LastLockoutDate:</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>{{LastLockoutDate}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
