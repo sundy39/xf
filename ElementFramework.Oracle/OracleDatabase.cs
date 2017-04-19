@@ -272,6 +272,10 @@ WHERE u.constraint_name = v.constraint_name";
                 schemaDataSet.Tables[tableName].Constraints.Add(fk);
             }
 
+            //
+            timeZone = FormatTimezone(timeZone);
+            schemaDataSet.ExtendedProperties["TimezoneOffset"] = timeZone;
+
             DateTime utcNow = ToUtcDateTime(now, timeZone);
             schemaDataSet.ExtendedProperties["DataSetVersion"] = utcNow.Ticks.ToString();
 
@@ -299,14 +303,18 @@ WHERE u.constraint_name = v.constraint_name";
             return ToUtcDateTime(now, timeZone);
         }
 
-        protected DateTime ToUtcDateTime(DateTime dateTime, string timeZone)
+        protected string FormatTimezone(string timeZone)
         {
             string xml = Properties.Resources.Timezones;
             XElement xTimezones = XElement.Parse(xml);
             XElement xTimezone = xTimezones.Elements().FirstOrDefault(x => x.Element("Key").Value == timeZone);
             string zone = (xTimezone == null) ? timeZone : xTimezone.Element("Value").Value;
+            return zone;
+        }
 
-            string[] ss = zone.Split(':');
+        protected DateTime ToUtcDateTime(DateTime dateTime, string timeZone)
+        {
+            string[] ss = timeZone.Split(':');
             int hour = int.Parse(ss[0]);
             int min = 0;
             int sec = 0;
