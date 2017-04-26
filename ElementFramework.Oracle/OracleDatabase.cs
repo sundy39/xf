@@ -411,19 +411,7 @@ WHERE table_alias_paging.ROW_NUM >= {2}";
 
         protected override object GenerateSequence(string sequenceName)
         {
-            string sql = string.Format("SELECT \"{0}\".NEXTVAL FROM DUAL", sequenceName);
-            OracleConnection conn = new OracleConnection(Connection.ConnectionString);
-            DbCommand cmd = conn.CreateCommand();
-            cmd.CommandText = sql;
-            try
-            {
-                conn.Open();
-                return cmd.ExecuteScalar();
-            }
-            finally
-            {
-                conn.Close();
-            }
+            return ExecuteScalar(string.Format("SELECT \"{0}\".NEXTVAL FROM DUAL", sequenceName));
         }
 
         protected override string DecorateTableName(string tableName)
